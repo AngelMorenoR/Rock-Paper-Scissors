@@ -1,0 +1,360 @@
+body {padding: 0; margin: 0; font-family: sans-serif; overflow: hidden;  }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+.container {
+    background: rgb(26,40,73);
+    background: linear-gradient(90deg, rgba(26,40,73,1) 0%, rgba(31,55,86,1) 49%, rgba(20,21,57,1) 99%);
+    height: 100vh;
+    width: 100%;
+    padding: 40px 0px 0px 0px;
+    position: relative;
+}
+.container-game {
+     width: 60%;
+    max-width: 60%;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.score-logo-container {
+    width: 100%;
+    height: 150px;
+    border: solid hsl(217, 16%, 45%) 4px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px ;
+    border-radius: 15px;
+    margin-bottom:  50px;
+}
+.score {
+    width: 30%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.score-wins {
+    font-size: 34px;
+    color: hsl(229, 25%, 31%)
+}
+.score-text {
+    font-size: 15px;
+    color: hsl(229, 64%, 46%);
+    letter-spacing: 0.4em;
+    margin: 0px
+}
+.rules {
+    width: 100px;
+    padding: 0px 20px 0px 20px;
+    border-radius: 10px;
+    height: 50px;
+    border: solid 2px white;
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer
+}
+.rules-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 500px;
+    background: white;
+    transform: translate(-50%,-50%);
+    border-radius: 15px;
+    display: none
+}
+.first {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: hsl(229, 25%, 31%)
+}
+
+.close{
+    cursor: pointer
+}
+.second {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px
+}
+.all {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(22, 22, 22, 0.356);
+    display: none
+}
+.align {
+    position: relative;
+}
+.paper {
+    height: 200px;
+    width: 200px;
+    padding: 10px;
+    border-radius: 100%;
+    background: white;
+    border: solid 20px #5671f5;
+    position:absolute;
+    left: -20%;
+    top: -20%;
+    cursor: pointer;
+}
+.scissors {
+    height: 200px;
+    width: 200px;
+    padding: 10px;
+    border-radius: 100%;
+    background: white;
+    border: solid 20px #eca922;
+    position:absolute;
+    right: -20%;
+    top: -20%;
+    cursor: pointer;
+}
+.rock {
+    height: 200px;
+    padding: 10px;
+    width: 200px;
+    border-radius: 100%;
+    background: white;
+    border: solid 20px #dd405d;
+    position:absolute;
+    left: 26%;
+    bottom: -20%;
+    cursor: pointer;
+}
+.bg-t{
+    height: 400px;
+    width: 400px;
+}
+.game {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    position: relative;
+}
+.container-fight {
+    width: 100%;
+    height: 70%;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+.house {
+
+    background-color: rgba(161, 161, 161, 0.692);
+}
+.raya {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white
+}
+.show {
+    color: white;
+    font-size: 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.play-again {
+    padding: 10px;
+    width: 160px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.play-again:hover {
+    color: red;
+    cursor: pointer
+}
+.btn-play {
+    display: none;
+}
+.btn-play > div {
+    color: white;
+    font-size: 1.4em;
+    transform: translateX(-35px);
+}
+button {
+    transition: all 500ms
+}
+button:hover {
+    background: rgba(255, 255, 255, 0.774)
+}
+
+
+
+/************************************************************* - SUPPORT MOVIL - **********************************************************************************/
+@media only screen and (max-width: 960px) {
+
+    .bg-t {
+        width: 150px; 
+        height: 150px;
+        position: relative
+    }
+    .paper {
+        width: 60px; height: 60px;
+        border: solid 5px #5671f5;
+
+    } 
+    .scissors {
+        width: 60px; height: 60px;
+        border: solid 5px #eca922;
+    }
+    .rock {
+        width: 60px; height: 60px;
+        top: 35%;
+        border: solid 5px #dd405d;
+    }
+    .paper {
+        position:absolute;
+        left: -20%;
+        top: -40px;
+    }
+    .scissors {
+        position:absolute;
+        right: -20px;
+        top: -40px;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 880px) {
+    body {
+        overflow: scroll;
+    }
+    h2 {
+        font-size: 10px;
+    }
+    .show{
+        font-size: 10px;
+    }
+    .score-text {
+        font-size: 15px;
+
+    }
+    .btn-play > div {
+        transform: translateX(0px);
+    }
+}
+
+@media only screen and (max-width: 610px) {
+    .logo {
+        width: 70px;
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .score {
+        width: 40%
+    }
+    .logo {
+        width: 60px;
+        height: 60px
+    }
+    .score-text {
+        font-size: 10px
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .score-logo-container {
+        display: flex;
+        align-items: center;
+    }
+    .logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+    .score {
+        width: 60px;
+        height: 60px
+    }
+    .score-text{
+        font-size: 7px;
+    }
+}
+@media only screen and (max-width: 770px) {
+    .rules-img {
+        height: 200px;
+        width: 200px
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .rules {
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .rules-modal {
+        height: 300px;
+        width: 300px
+    }
+    .rules-img {
+        height: 150px;
+        width: 150px
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    .rules-modal {
+        height: 200px;
+        width: 200px
+    }
+    .rules-img {
+        height: 100px;
+        width: 100px
+    }
+    .second {
+        margin-top: 14px
+    }
+}
+
+@media only screen and (max-width: 270px) {
+    .rules-modal {
+        height: 150px;
+        width: 150px
+    }
+    .rules-img {
+        height: 70px;
+        width: 70px
+    }
+    .first {
+        padding: 4px
+    }
+    .close {
+        width: 17px;
+        height: 17px
+    }
+    .score {
+        width: 30%
+    }
+    .score-text{
+        font-size: 5px;
+    }
+}
