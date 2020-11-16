@@ -4,8 +4,9 @@ let points;
 let opt;
 let animationFight;
 
-if(!localStorage.getItem('points')){
+if(localStorage.getItem('points') == null){
     points = 0
+    $('.score-wins').text(points)
 }else {
     points = parseInt(localStorage.getItem('points'))
     $('.score-wins').text(points)
