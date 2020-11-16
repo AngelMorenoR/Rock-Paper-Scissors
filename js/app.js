@@ -1,22 +1,24 @@
 const choose = document.querySelectorAll('.choose')
-const score = document.querySelector('.score-wins')
 
-let points = 0
+let points;
 let opt;
 let animationFight;
 
+if(!localStorage.getItem('points')){
+    points = 0
+}else {
+    points = parseInt(localStorage.getItem('points'))
+    $('.score-wins').text(points)
+}
+
 choose.forEach(el => {
     el.addEventListener('click', function (e) {
-        score.innerHTML = points
-        
         const ene = randomChoose()
         opt = this
 
         checkWhoWin(opt, ene)
 
         animationFight = gsap.to($('.align'), { scale: 0,  onComplete: () => showFight(ene, opt) })
-        
-        
     })
 })
 
@@ -71,31 +73,20 @@ function checkWhoWin(opt, ene){
 
     if(myOpt === eneOpt){
         $('.who-win').text('draw')
-    }else if(myOpt == 'rock' && eneOpt == 'scissors'){
+    }else if(myOpt == 'rock' && eneOpt == 'scissors' || myOpt == 'scissors' && eneOpt == 'paper' || myOpt == 'paper' && eneOpt == 'rock'){
         $('.who-win').text('YOU WIN')
         points++
-        score.innerHTML = points
-    }else if(myOpt == 'rock' && eneOpt == 'paper'){
-        $('.who-win').text('YOU LOSE')
-        points == 0 ? 0 :  points--
-        score.innerHTML = points
-    }else if(myOpt == 'paper' && eneOpt == 'scissors'){
-        $('.who-win').text('YOU LOSE')
-        points == 0 ? 0 :  points--
-        score.innerHTML = points
-    }else if(myOpt == 'paper' && eneOpt == 'rock'){
-        $('.who-win').text('YOU WIN')
-        points++
-        score.innerHTML = points
-    }else if(myOpt == 'scissors' && eneOpt == 'rock'){
-        $('.who-win').text('YOU LOSE')
-        points == 0 ? 0 :  points--
-        score.innerHTML = points
-    }else if(myOpt == 'scissors' && eneOpt == 'paper'){
-        $('.who-win').text('YOU WIN')
-        points++
-        score.innerHTML = points
+        localStorage.setItem('points', points)
+        $('.score-wins').text(points)
     }
+    if(myOpt == 'rock' && eneOpt == 'paper' || myOpt == 'scissors' && eneOpt == 'rock' || myOpt == 'paper' && eneOpt == 'scissors'){
+        $('.who-win').text('YOU LOSE')
+        points == 0 ? 0 :  points--
+        localStorage.setItem('points', points)
+
+        $('.score-wins').text(points)
+    }
+
 }
 
 // rules modal
