@@ -108,4 +108,3 @@ $('.play-again').on('click', () => {
     $('.btn-play').css('display', 'none')
     animationFight.reverse()
 })
-
